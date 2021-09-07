@@ -1,11 +1,31 @@
-#### React Router Fix
+## Cocktail-Wiki
 
-(Fix)[https://dev.to/dance2die/page-not-found-on-netlify-with-react-router-58mc]
+An application used to fetch data from thecocktaildb.com API with React auto-complete search bar, built with React.
 
-#### CRA Fix
+## Project Screen Shot(s)
 
-```
 
-"build": "CI= react-scripts build",
+-
+-
+
+## Installation and Setup Instructions
+
+#### Example:  
+
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+
+Installation:
+
+`npm install`   
+
+To Start Server:
+
+`npm start`  
+
+To Visit App:
+
+`localhost:3000`  
+
+## Reflection
 
 ```

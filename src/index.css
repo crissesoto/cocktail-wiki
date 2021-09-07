@@ -4,12 +4,12 @@ Variables
 ======
 */
 :root {
-  --primaryLightColor: #d4e6a5;
-  --primaryColor: #476a2e;
+  --primaryLightColor: #F0B7A1;
+  --primaryColor: #BF6E4E;
   --primaryDarkColor: #c02c03;
   --mainWhite: #fff;
-  --offWhite: #f7f7f7;
-  --mainBackground: #f1f5f8;
+  --offWhite: rgba(255,255,255,0.88);
+  --mainBackground: rgb(153,108,86);
   --mainOverlay: rgba(35, 10, 36, 0.4);
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -21,6 +21,7 @@ Variables
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBorderRadius: 0.25rem;
   --smallWidth: 85vw;
+  --vWidth: 90vw;
   --maxWidth: 40rem;
   --fullWidth: 1170px;
 }
@@ -40,6 +41,7 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--mainBlack);
   background: var(--mainBackground);
+  background: linear-gradient(90deg, rgba(153,108,86,1) 0%, rgba(78,53,41,1) 100%);
   line-height: 1.4;
   font-size: 1rem;
   font-weight: 300;
@@ -60,9 +62,12 @@ p {
 ul {
   list-style-type: none;
 }
+ul li {
+  color: var(--mainWhite);
+}
 a {
   text-decoration: none;
-  color: var(--mainBlack);
+  color: var(--mainWhite);
 }
 img {
   width: 100%;
@@ -75,42 +80,33 @@ Buttons
 ======
 */
 .btn,
-.btn-white,
 .btn-primary {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
-  color: var(--primaryColor);
-  border: 2px solid var(--primaryColor);
+  color: var(--mainBlack);
+  border: 2px solid var(--mainBlack);
   padding: 0.45rem 0.8rem;
   display: inline-block;
   transition: var(--mainTransition);
   cursor: pointer;
   font-size: 0.8rem;
   background: transparent;
-  border-radius: var(--mainBorderRadius);
   display: inline-block;
 }
 .btn:hover {
-  background: var(--primaryColor);
+  background: var(--mainOverlay);
   color: var(--mainWhite);
-}
-.btn-white {
-  background: transparent;
-  color: var(--mainWhite);
-  border-color: var(--mainWhite);
-}
-.btn-white:hover {
-  background: var(--mainWhite);
-  color: var(--primaryColor);
 }
 .btn-primary {
   background: var(--primaryColor);
   color: var(--mainWhite);
-  border-color: transparent;
+  border-color: var(--primaryColor);
 }
 .btn-primary:hover {
   background: var(--primaryLightColor);
-  color: var(--primaryColor);
+  color: var(--mainWhite);
+  border-color: var(--primaryLightColor);
+
 }
 .btn-block {
   width: 100%;
@@ -132,41 +128,36 @@ Navbar
 ======
 */
 .navbar {
-  background: var(--mainWhite);
-  height: 5rem;
+  background: transparent;
   display: flex;
-  align-items: center;
-  border-bottom: 2px solid var(--primaryColor);
-  box-shadow: var(--lightShadow);
+  justify-content: center;
+  height: 5rem;
+  border-bottom: 0.8px solid var(--mainWhite);
 }
-.nav-center {
+.navbar_links {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: var(--smallWidth);
+  width: var(--vWidth);
   margin: 0 auto;
   max-width: var(--fullWidth);
 }
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-.nav-links a {
+.navbar_links a, .navbar_links li {
   text-transform: capitalize;
   display: inline-block;
-  font-weight: bold;
   margin-right: 0.5rem;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 2px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.25rem 0.5rem;
   transition: var(--mainTransition);
 }
-.nav-links a:hover {
-  color: var(--primaryColor);
+.nav-links a:hover, .nav-links li:hover {
+  color: var(--mainBlack);
 }
-.logo {
-  width: 12rem;
+a.logo{
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 /* 
 ====== 
@@ -182,6 +173,7 @@ About
   line-height: 2rem;
   font-weight: 400;
   letter-spacing: 2px;
+  color: var(--offWhite);
 }
 /* 
 ====== 
@@ -195,6 +187,24 @@ Error
 .error-container {
   text-align: center;
   text-transform: capitalize;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container h1 {
+  font-size: 6rem;
+  background: #F0B7A1;
+  background: -webkit-linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+  background: -moz-linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+  background: linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.error-container p {
+  color: var(--offWhite);
+  width: 30vw;
 }
 /* 
 ====== 
@@ -206,13 +216,16 @@ Cocktails List
   padding: 5rem 0;
 }
 .section-title {
-  font-size: 2rem;
+  font-size: 3.5rem;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
   text-align: center;
   margin-bottom: 3.5rem;
   margin-top: 1rem;
+  font-weight: 300;
 }
+
 .cocktails-center {
   width: var(--smallWidth);
   margin: 0 auto;

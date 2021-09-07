@@ -226,6 +226,13 @@ Cocktails List
   font-weight: 300;
 }
 
+.no-cocktail-title {
+  color: var(--mainBlack);
+  text-align: center;
+  margin: 3.5rem 1rem;
+  font-weight: 300;
+}
+
 .cocktails-center {
   width: var(--smallWidth);
   margin: 0 auto;

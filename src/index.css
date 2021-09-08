@@ -18,7 +18,7 @@ Variables
   --mainRed: #bd0303;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 0.3rem;
-  --lightShadow: 2px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  --lightShadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBorderRadius: 0.25rem;
   --smallWidth: 85vw;
@@ -141,6 +141,12 @@ Navbar
   width: var(--vWidth);
   margin: 0 auto;
   max-width: var(--fullWidth);
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar_links {
+    flex-direction: column;
+  }
 }
 .navbar_links a, .navbar_links li {
   text-transform: capitalize;
@@ -344,6 +350,15 @@ Cocktail
   top: 9px;
   width: 65%;
 }
+@media only screen and (max-width: 767px) {
+  .card-more:after {
+    width: 50%;
+  }
+
+  .single-cocktail:after {
+    width: 45%;
+  }
+}
 
 .card-media {
   float: right;
@@ -412,6 +427,8 @@ Cocktail
 }
 .drink img {
   border-radius: var(--mainBorderRadius);
+  object-fit: cover;
+  height: fit-content;
 }
 .drink p {
   font-weight: bold;
@@ -422,7 +439,7 @@ Cocktail
   margin-right: 0.5rem;
 }
 .drink-data {
-  padding: 0.25rem 0.5rem;
+  display: block;
   border-radius: var(--mainBorderRadius);
   color: var(--primaryColor);
 }

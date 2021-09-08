@@ -67,11 +67,12 @@ const SingleCocktail = () => {
             </p>
             <p>
               <span className='drink-data'>ingredients :</span>
-              {ingredients.map((item, index) => {
-                return item ? <span key={index}> {item},</span> : null
-              })}
             </p>
-            <Link to="/" className="card-more">back home</Link>
+            
+            {ingredients.map((item, index) => {
+                return item ? <p key={index}> {item},</p> : null
+              })}
+            <Link to="/" className="card-more single-cocktail">back home</Link>
           </div>
         </div>
       </section>
